@@ -32,60 +32,7 @@ $(document).ready(function() {
 			}
 		}
 	};
-/*
-	var trivia = {
-		questions: ['Who was the host for Kitchen Kabaret?',
-								'Who starred in the title role of Condorman?',
-								'In Captain EO, what is the name of the elephant like alien?',
-								'The 1980\'s were big for new personal computer introductions. Which of the following computers was introduced in 1980?',
-								'What country was welcomed into the World Showcase at EPCOT Center in 1984?',
-								'In 1981 a Disney constructed WED-Way People Mover opened at which airport?',
-								'What school is attended in the Disney Channel Series, Girl Meets World?',
-								'Which Walt Disney World location opened on the same day as the Disney-MGM Studios theme park on May 1, 1989?',
-								'Which of the following films is NOT part of the Walt Disney Studios Silly Symphonies?',
-								'Which wartime activity did the Walt Disney Studios partake in to support the American war effort?'],
-		q1: ['A. Fud Wrapper',
-				 'B. Cookie Ann Milk',
-				 'C. Bonnie Appetit',
-				 'D. Cherry Ontop'],
-		q2: ['A. Zac Efron',
-				 'B. Michael Crawford',
-				 'C. Billy Crystal',
-				 'D. Michael Keaton'],
-		q3: ['A. Trunks',
-				 'B. Hooter',
-				 'C. Elle',
-				 'D. Odie'],
-		q4: ['A. Sinclair ZX80',
-				 'B. IBM PC',
-				 'C. Commodore 64',
-				 'D. Atari 2600'],
-		q5: ['A. Norway',
-				 'B. Morocco',
-				 'C. France',
-				 'D. Japan'],
-		q6: ['A. Houston Intercontinental Airport',
-				 'B. Orlando International Airport',
-				 'C. Atlanta International Airport',
-				 'D. Dallas/Ft. Worth International Airport'],
-		q7: ['A. Vintage High School',
-				 'B. Peyton Middle School',
-				 'C. John Quincy Adams Middle School',
-				 'D. Washington High School'],
-		q8: ['A. Typhoon Lagoon',
-				 'B. Pleasure Island',
-				 'C. Both A & B',
-				 'D. None of the above'],
-		q9: ['A. The Night Before Christmas',
-				 'B. Three Little Pigs',
-				 'C. The Old Mill',
-				 'D. The Gallopin\' Gaucho'],
-		q10: ['A. Recycling used film footage',
-				  'B. Designing US Army & US Navy insignia',
-				  'C. Hosted a Studio Victory Garden where employees grew food for their families',
-				  'D. Forced employees to carpool by closing parking lots to non-carpool cars']		 						
-	}
-*/
+
 var correct = 0;
 var wrong = 0;
 var q1 = {
@@ -198,15 +145,10 @@ function loadQuestion(questionSelection) {
   $("#buttonB").text(questionArray[questionSelection].possibleAnswers[1]).show();
   $("#buttonC").text(questionArray[questionSelection].possibleAnswers[2]).show();
   $("#buttonD").text(questionArray[questionSelection].possibleAnswers[3]).show();
-//  getAnswer();  
-//  nextQuestion(index);
+
 }
 
-//function nextQuestion() {
-//	index = index++;
-//	console.log(index);
-//}
-
+//this function is designed to setup the initial page that allows the user to start the game by pressing the start button.
 function setup() {
 	index = 0;
 	$('.question').append('<button id="startButton">Start</button>');
@@ -217,9 +159,10 @@ function setup() {
 	});
 }		
 
+//this function generates the next question after the previous question has been answered.
 function getAnswer() {
 
-//  nextQuestion();
+
 	$('.answerchoice').on('click', function() {
 	  console.log('alert', index);
 		index++;
@@ -233,18 +176,26 @@ function getAnswer() {
 	})
 }
 
+//this function should display a new page notifying the user that they selected the correct answer.
 function answerCorrect() {
+
 	correct++;
-	alert("Correct!");
+	$('.question').empty();
+	$('.question').append("<h2><p>" + correct + " correct!</p></h2>");
+	$('.timer').empty();
 	console.log("correct");
 }
-
+//this function should display a new page notifying the user that they selected a wrong answer.
 function answerWrong() {
 	wrong++;
-	alert("Incorrect!");
+	$('.question').empty();
+	$('.question').append("<h2><p>" + correct + " correct!</p></h2>");
+	$('.timer').empty();
 	console.log("wrong");
 }
 
+
+//this function clears the screen, stops the clock and notifies the user how many questions they got correct and incorrect.
 function showScore() {
 	$('.question').empty();
 	$('.question').append("<h2><p>" + correct + " correct</p></h2>");
@@ -253,29 +204,9 @@ function showScore() {
 	$('.timer').empty();
 
 }
-//		for (var i=0; i<questionArray.length; i++) {
-//			$('.question').append('<p>'+questionArray[i].question+'</p>');
-//			for (var j=0; j<questionArray[i].possibleAnswers.length; j++) {
-//				$('.answers').append('<span><button id="possibleAnswer">' + questionArray[i].possibleAnswers[j]+ '</button></span>');
-//			}
-//			$('#possibleAnswers').on('click', function() {
 
+//create a function that will display an picture of the character of the correct answer for each of the 10 individual questions.
 
-//		console.log("click");
-//		countdownTimer.start();
-//		for (var i = 0; i < questionArray.length; i++) {
-//			console.log(i);
-
-//			$('.timer').html('<h3>'+countdownTimer.time + ' seconds remaining</h3>');
-//			$('.question').html(questionArray[i].question);
-//			while (countdownTimer != 0) {
-
-//			}
-		
-//	});
-//	$('#startButton').click(countdownTimer.start);
-
-//}
 setup();
 $('.answerchoice').on('click', function() {
  console.log($(this));
@@ -324,5 +255,4 @@ if ((answerChosen == 'D') && (questionArray[index].flags[3] == true)) {
 });
 
 
-//	$('#start').click(countdownTimer.start);
 });
