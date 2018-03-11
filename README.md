@@ -4,7 +4,7 @@ This game was designed with the intent to show off my ability to engineer a them
 
 ## How to Access
 
-Feel free to take the Simpsons trivia quiz for yourself by visiting this [link](https://kooldrmony.github.io/TriviaGame/). Notice all of details that were used to create this project. Have fun!!!
+Feel free to take the Simpsons trivia quiz for yourself by visiting this [link](https://kooldrmony.github.io/Simpsons-Trivia-Game/). Notice all of details that were used to create this project. Have fun!!!
 
 ## Purpose
 
